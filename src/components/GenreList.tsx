@@ -8,6 +8,7 @@ import {
   Skeleton,
   SkeletonText,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
 
@@ -24,7 +25,10 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   if (error) return null;
 
   return (
-    <div>
+    <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
       <List>
         {isLoading &&
           genres.map((genre) => (
@@ -42,10 +46,13 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               <Image
                 src={getCroppedImageUrl(genre.image_background)}
                 alt={genre.name}
+                objectFit="cover"
                 boxSize="32px"
                 borderRadius={8}
               />
               <Button
+                whiteSpace="normal"
+                textAlign="left"
                 fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 variant="link"
@@ -57,7 +64,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
           </ListItem>
         ))}
       </List>
-    </div>
+    </>
   );
 };
 
