@@ -1,9 +1,9 @@
 import {
   Button,
   CircularProgress,
-  MenuItem,
   Menu,
   MenuButton,
+  MenuItem,
   MenuList,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
@@ -26,7 +26,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
       </MenuButton>
       <MenuList>
         {isLoading && <CircularProgress />}
-        {data.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}
             key={platform.id}
