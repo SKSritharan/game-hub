@@ -5,6 +5,7 @@ import GameAttributes from "../components/GameAttributes";
 // import GameScreenshots from '../components/GameScreenshots';
 // import GameTrailer from '../components/GameTrailer';
 import useGame from "../hooks/useGame";
+import GameTrailer from "../components/GameTrailer";
 
 const GameDetailPage = () => {
   const { slug } = useParams();
@@ -22,8 +23,8 @@ const GameDetailPage = () => {
         <GameAttributes game={game} />
       </GridItem>
       <GridItem>
-        {/* <GameTrailer gameId={game.id} />
-        <GameScreenshots gameId={game.id} /> */}
+        <GameTrailer gameId={game.id} />
+        {/*<GameScreenshots gameId={game.id} /> */}
       </GridItem>
     </SimpleGrid>
   );
